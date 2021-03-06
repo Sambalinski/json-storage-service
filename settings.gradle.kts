@@ -1,1 +1,1 @@
-rootProject.name = "hello-world-spring-server"
+rootProject.name = "json-storage-service"

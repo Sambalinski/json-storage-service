@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val jacksonVersion = "2.10.3"
+val swagger2Version = "3.0.0"
 
 plugins {
     id("org.springframework.boot") version "2.4.2"
@@ -34,6 +35,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    // swagger
+    implementation("io.springfox:springfox-boot-starter:$swagger2Version")
+    implementation("io.springfox:springfox-swagger2:$swagger2Version")
+    implementation("io.springfox:springfox-swagger-ui:$swagger2Version")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
