@@ -1,18 +1,18 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val jacksonVersion = "2.10.3"
-val swagger2Version = "3.0.0"
+val jacksonVersion = "2.13.4"
+//val swagger2Version = "3.0.0"
 
 plugins {
-    id("org.springframework.boot") version "2.4.2"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    kotlin("jvm") version "1.4.21"
-    kotlin("plugin.spring") version "1.4.0"
+    id("org.springframework.boot") version "2.7.5"
+    id("io.spring.dependency-management") version "1.0.15.RELEASE"
+    kotlin("jvm") version "1.7.20"
+    kotlin("plugin.spring") version "1.7.20"
 }
 
-group = "com.sambalinski.test"
+group = "com.sambalinski"
 version = "1.0.0"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
@@ -36,9 +36,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     // swagger
-    implementation("io.springfox:springfox-boot-starter:$swagger2Version")
+/*    implementation("io.springfox:springfox-boot-starter:$swagger2Version")
     implementation("io.springfox:springfox-swagger2:$swagger2Version")
-    implementation("io.springfox:springfox-swagger-ui:$swagger2Version")
+    implementation("io.springfox:springfox-swagger-ui:$swagger2Version")*/
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
@@ -57,6 +57,6 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }

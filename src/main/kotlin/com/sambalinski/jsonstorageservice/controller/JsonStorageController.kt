@@ -8,28 +8,30 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
+@RequestMapping("json")
 class JsonStorageController(
     private val service: JsonStorageService
 ) {
-    @GetMapping("/jsons")
+    @GetMapping("/all")
     fun getJsons() =
         ResponseEntity.ok(service.allJsons())
 
-    @PostMapping("/json/new")
+    @PostMapping("/new")
     fun newJson(@RequestBody json: Json) =
         service.newJson(json)?.let { ResponseEntity.ok(it) }
 
-    @GetMapping("json")
-    fun findJson(@RequestParam key: String) =
+    @GetMapping("/{key}")
+    fun findJson(@PathVariable key: String) =
         service.findJson(key)?.let { ResponseEntity.ok(it) }
 
-    @DeleteMapping("json/{key}")
+    @DeleteMapping("/{key}")
     fun removeJson(@PathVariable key: String) = service.removeJson(key)
 
-    @DeleteMapping("jsons/clear")
+    @DeleteMapping("/clearAll")
     fun clearAll() = service.clearAll()
 }

@@ -2,9 +2,9 @@ package com.sambalinski.jsonstorageservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import springfox.documentation.swagger2.annotations.EnableSwagger2
+//import springfox.documentation.swagger2.annotations.EnableSwagger2
 
-@EnableSwagger2
+//@EnableSwagger2
 @SpringBootApplication
 class JsonStorageApplication
 

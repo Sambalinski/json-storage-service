@@ -3,7 +3,6 @@ server:
 
 spring:
   jackson:
-    property-naming-strategy: "SNAKE_CASE"
     deserialization:
       FAIL_ON_UNKNOWN_PROPERTIES: false
       ADJUST_DATES_TO_CONTEXT_TIME_ZONE: false
